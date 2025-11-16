@@ -28,3 +28,5 @@ k = cv2.waitKey(0)
 if k == ord('s'):
     cv2.imwrite("/tmp/starry_night_saved.png", img)
 
+# Cleanly destroy window
+cv2.destroyWindow("Starry Night")
