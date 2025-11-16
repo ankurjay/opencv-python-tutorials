@@ -2,3 +2,4 @@ opencv_env/
 opencv_src/
 .vscode/
 *.egg-info/
+*/__pycache__/*
