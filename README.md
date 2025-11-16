@@ -52,9 +52,11 @@ You will see `(opencv_env)` appear at the start of your terminal prompt, indicat
 
 ## Running a Tutorial
 
-Each tutorial consists of a folder with a `*.ipynb` Jupyter Notebook, and optionally some image/video files that are used in the tutorial. Some tutorials may also have a `*.py` Python script. 
+Each tutorial consists of a folder with a `*.ipynb` Jupyter Notebook. Some tutorials may also have a `*.py` Python script. 
 
-Each `.ipynb` notebook has code interweaved with notes. In the event that a specific functionality of OpenCV needs to be demonstrated using a Python script, instructions for that are provided towards the end of the `.ipynb` notebook.
+Each `.ipynb` notebook has code interweaved with notes. In the event that a specific functionality of OpenCV needs to be demonstrated using a Python script, instructions for that are provided in the `.ipynb` notebook.
+
+The recommended method to go through these tutorials is to go through the `*.ipynb` notebooks, and try out the Python scripts wherever recommended.
 
 ### Running Jupyter Notebooks
 
@@ -68,14 +70,17 @@ This will open a browser window in which you can navigate the various directorie
 >
 > Jupyter Notebooks also don't support real-time playback of video frames. You can show single frames and loop through them. 
 >
-> To ensure that most of the image processing is done in a format that OpenCV expects, some utility functions have been provided inside `utils/utils.py`, such as `cv_imshow()` that internally uses `matplotlib.pyplot.imshow()` after converting the image from `BGR` to `RGB`.
+> To ensure that most of the image processing is done in a format that OpenCV expects, some utility functions have been provided inside `tutorial_utils/utils.py`, such as `cv_imshow()` that internally uses `matplotlib.pyplot.imshow()` after converting the image from `BGR` to `RGB`.
 
 
 ### Running Python Scripts
 
 Once you have an activated environment, you can run a script normally like this:
 
-```python3 your_script_name.py```
+```
+cd <directory-where-script-resides>
+python3 your_script_name.py
+```
 
 
 ## Cleaning up
