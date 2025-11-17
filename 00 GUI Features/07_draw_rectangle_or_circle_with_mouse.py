@@ -12,6 +12,10 @@ WINDOW_NAME = "Press 'm' to switch mode (Rect/Circle)"
 
 ix, iy = -1, -1 # Placeholder to store initial coordinate
 
+
+# Create a mouse callback function
+# This has a specific format (args) but we can define the
+# function any way we want
 def mouse_callback(event, x, y, flags, params):
 
     global ix, iy, drawing, mode
@@ -64,6 +68,12 @@ while True:
 
     # The mouse callback handles imshow() so we don't need to write it here
 
+    # Check for a key-press to detect if we need to close the window or change mode
+
+    # cv.waitKey() can return 32-bit or 64-bit integer depending on the architecture
+    # This integer can contain additional 'flag' bits in the higher positions 
+    # We only care about the last 8 bits, so we do an AND operation with 0xFF
+    # This ensures that all bits before the last 8 bits are set to 0.
     k = cv2.waitKey(20) & 0xFF
 
     # Check for mode switch

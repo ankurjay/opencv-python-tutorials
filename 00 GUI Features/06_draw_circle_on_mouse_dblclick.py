@@ -9,10 +9,13 @@ COLOR_BLUE = (255, 0, 0)
 
 WINDOW_NAME = "Double-Click to Draw Circle"
 
+# Create a mouse callback function
+# This has a specific format (args) but we can define the
+# function any way we want
 def mouse_callback(event, x, y, flags, params):
 
-
-    # Check if the mouse event was a double click
+    # If the mouse event that triggered this callback was a 
+    # double-click of the mouse-left button
     if event == cv2.EVENT_LBUTTONDBLCLK:
 
         # Draw a circle
@@ -32,6 +35,11 @@ while True:
     cv2.imshow(WINDOW_NAME, img)
 
     # Check for key-press to detect if we need to close the window
+
+    # cv.waitKey() can return 32-bit or 64-bit integer depending on the architecture
+    # This integer can contain additional 'flag' bits in the higher positions 
+    # We only care about the last 8 bits, so we do an AND operation with 0xFF
+    # This ensures that all bits before the last 8 bits are set to 0.
     k = cv2.waitKey(20) & 0xFF
 
     # 27 is the ASCII code for ESC key
