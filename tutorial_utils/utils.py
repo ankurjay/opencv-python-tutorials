@@ -14,6 +14,14 @@ def cv2_imshow(img, title='default', dpi=100):
     OpenCV uses BGR, while Matplotlib uses RGB.
     This function takes an OpenCV BGR img and converts it into RGB
     Then it displays the image using matplotlib
+
+    Note: This function expects a BGR or Grayscale image, typically those that 
+    are read using cv2.imread(). Often, users may operate on such images, including
+    changing the color-space to HSV, YCrCb, RGBA etc. If the colorspace is changed,
+    such images will still be plotted by this function but they may not be 
+    meaningful, or are upto the interpretation of the user. Images in OpenCV are just 
+    numpy arrays containing raw pixel data - the type of color-space is not 
+    explicitly encoded in it.
     '''
 
     # Convert to RGB image
