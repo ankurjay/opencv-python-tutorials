@@ -56,7 +56,7 @@ Each tutorial consists of a folder with a `*.ipynb` Jupyter Notebook. Some tutor
 
 Each `.ipynb` notebook has code interweaved with notes. In the event that a specific functionality of OpenCV needs to be demonstrated using a Python script, instructions for that are provided in the `.ipynb` notebook.
 
-The recommended method to go through these tutorials is to go through the `*.ipynb` notebooks, and try out the Python scripts wherever recommended.
+The recommended sequence is to go through the `*.ipynb` notebooks (often prefixed with 00). Whenever you come across a link to a `.py` script in the notebook, you can inspect the code and try it out. In many cases, the scripts are provided because some interactive elements are not supported by Jupyter Notebooks.
 
 ### Running Jupyter Notebooks
 
