@@ -1,3 +1,7 @@
+'''
+This file acts as supplementary material for 00_Getting_Started.ipynb
+'''
+
 import numpy as np
 import cv2
 
