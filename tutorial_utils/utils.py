@@ -1,6 +1,7 @@
 import os
 from matplotlib import pyplot as plt
 import cv2
+import numpy as np
 
 def data_dir():
     '''
@@ -46,3 +47,35 @@ def cv2_imshow(img, title='default', dpi=100):
     
     plt.show()
 
+def add_snp_noise(img, amount=0.2, method="s&p"):
+    '''
+    Adds salt-&-pepper noise to an image. 
+    
+    Parameters:
+        img (numpy.ndarray) : Input image - grayscale or color
+        amount (float) : Proportion of pixels to alter. 
+        method (str) : 's&p' (default), 'salt', 'pepper'
+
+    Returns:
+        numpy.ndarray : Noisy image
+    '''
+    output = np.copy(img)
+    row, col = img.shape[:2]
+
+    if method == "salt" or method == "s&p":
+        num_salt = np.ceil(amount * row * col * (0.5 if method == 's&p' else 1.0))
+        coords = [np.random.randint(0, i-1, int(num_salt)) for i in img.shape[:2]]
+        if img.ndim == 2: # Grayscale
+            output[coords[0], coords[1]] = 255
+        else: # Color
+            output[coords[0], coords[1], :] = 255
+
+    if method == "pepper" or method == "s&p":
+        num_pepper = np.ceil(amount * row * col * (0.5 if method == 's&p' else 1.0))
+        coords = [np.random.randint(0, i-1, int(num_pepper)) for i in img.shape[:2]]
+        if img.ndim == 2: # Grayscale
+            output[coords[0], coords[1]] = 0
+        else: # Color
+            output[coords[0], coords[1], :] = 0
+
+    return output
